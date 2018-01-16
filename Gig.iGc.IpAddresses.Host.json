@@ -1,0 +1,105 @@
+{
+    "ApiDocs": {
+        "Enabled": false,
+        "RoutePath": "api-docs"
+    },
+    "Hystrix": {
+        "Command": {
+            "Default": {
+                "CircuitBreaker": {
+                    "Enabled": false,
+                    "RequestVolumeThreshold": 1
+                },
+                "Execution": {
+                    "Isolation": {
+                        "Thread": {
+                            "TimeoutInMilliseconds": 5000
+                        }
+                    }
+                }
+            }
+        },
+        "Stream": {
+            "validate_certificates": false
+        }
+    },
+    "OutputChannel": {
+        "Destination": "igc.ipaddress",
+        "ContentType": "application/json",
+        "Group": "grp002",
+        "RabbitConfiguration": {
+            "Host": "rabbit.rabbit.default.gigcloud.org",
+            "Port": 5672,
+            "VirtualHost": "/"
+        },
+        "Producer": {
+            "Prefix": "",
+            "AutoBindDlq": true,
+            "DeclareExchange": false,
+            "ExchangeType": "direct",
+            "ExchangeDurable": true,
+            "ExchangeAutoDelete": false,
+            "DeadLetterExchangeName": "DLX"
+        }
+    },
+    "Logging": {
+        "IncludeScopes": false,
+        "LogLevel": {
+            "Default": "Warning"
+        }
+    },
+    "Authentication": {
+        "ApiKey": {
+            "Enabled": true
+        },
+        "IdentityServer": {
+            "Enabled": true,
+            "Authority": "http://localhost:5001",
+            "ApiName": "api1",
+            "AllowedScopes": [
+                "api1",
+                "api1.read"
+            ],
+            "SupportedTokens": "Jwt",
+            "RequireHttpsMetadata": false,
+            "LegacyAudienceValidation": false
+        }
+    },
+    "ConfigServer": {
+        "Label": "config-repo-test",
+        "Enabled": true,
+        "FailFast": true,
+        "Uri": "http://consul-client.consul.default.gigcloud.org:8500"
+    },
+    "Management": {
+        "Endpoints": {
+            "Path": "/management",
+            "Enabled": true,
+            "Health": {
+                "Enabled": true,
+                "Id": "health1"
+            }
+        }
+    },
+    "Multitenancy": {
+        "Tenants": [
+            {
+                "Id": "4ead3109-7df4-4bfc-b2b0-90d4c3e51323",
+                "Name": "Tenant1",
+                "ApiKeys": [
+                    "10fc1cd7-ec0c-4e93-af94-190d6c4ee637",
+                    "1148c713-a1ff-4031-8cc8-5919367f4364",
+                    "14f7e5f3-e129-4913-8a46-680b0ed3af11"
+                ]
+            },
+            {
+                "Id": "eb863af4-d046-dd82-1acc-cd7018e61db0",
+                "Name": "Tenant211",
+                "ApiKeys": [
+                    "ED48958B9319F63B784CDB5EA3135"
+                ]
+            }
+        ]
+    },
+    "__$id": "ee487c1d-49d6-47d5-af2c-3758b1192b77"
+}

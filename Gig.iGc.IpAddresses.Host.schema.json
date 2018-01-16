@@ -1,0 +1,323 @@
+{
+    "__$id": "ee487c1d-49d6-47d5-af2c-3758b1192b77",
+    "title": "IpAddresses.Host",
+    "type": "object",
+    "properties": {
+        "ApiDocs": {
+            "type": "object",
+            "properties": {
+                "Enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "RoutePath": {
+                    "type": "string",
+                    "title": "Identity"
+                }
+            }
+        },
+        "Hystrix": {
+            "type": "object",
+            "properties": {
+                "Command": {
+                    "type": "object",
+                    "properties": {
+                        "Default": {
+                            "type": "object",
+                            "properties": {
+                                "CircuitBreaker": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Enabled": {
+                                            "type": "boolean",
+                                            "title": "Enabled"
+                                        },
+                                        "RequestVolumeThreshold": {
+                                            "type": "integer",
+                                            "title": "RequestVolumeThreshold",
+                                            "minimum": 1,
+                                            "maximum": 1000
+                                        }
+                                    }
+                                },
+                                "Execution": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Isolation": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Thread": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "TimeoutInMilliseconds": {
+                                                            "type": "integer",
+                                                            "title": "TimeoutInMilliseconds",
+                                                            "minimum": 1,
+                                                            "maximum": 600000
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Stream": {
+                    "type": "object",
+                    "properties": {
+                        "validate_certificates": {
+                            "type": "boolean",
+                            "title": "validate_certificates"
+                        }
+                    }
+                }
+            }
+        },
+        "OutputChannel": {
+            "type": "object",
+            "properties": {
+                "Destination": {
+                    "type": "string",
+                    "title": "Destination"
+                },
+                "ContentType": {
+                    "type": "string",
+                    "enum": [
+                        "application/json",
+                        "text/plain"
+                    ],
+                    "title": "Content Type"
+                },
+                "Group": {
+                    "type": "string",
+                    "title": "Group"
+                },
+                "RabbitConfiguration": {
+                    "type": "object",
+                    "properties": {
+                        "Host": {
+                            "type": "string",
+                            "title": "Host"
+                        },
+                        "Port": {
+                            "type": "integer",
+                            "title": "Port",
+                            "minimum": 0,
+                            "maximum": 65535
+                        },
+                        "VirtualHost": {
+                            "type": "string",
+                            "title": "Virtual Host"
+                        }
+                    },
+                    "title": "Rabbit Configuration"
+                },
+                "Producer": {
+                    "type": "object",
+                    "properties": {
+                        "Prefix": {
+                            "type": "string",
+                            "title": "Prefix"
+                        },
+                        "AutoBindDlq": {
+                            "type": "boolean",
+                            "title": "Auto Bind Dlq"
+                        },
+                        "DeclareExchange": {
+                            "type": "boolean",
+                            "title": "Declare Exchange"
+                        },
+                        "ExchangeType": {
+                            "type": "string",
+                            "title": "ExchangeType"
+                        },
+                        "ExchangeDurable": {
+                            "type": "boolean",
+                            "title": "Exchange Durable"
+                        },
+                        "ExchangeAutoDelete": {
+                            "type": "boolean",
+                            "title": "Exchange Auto Delete"
+                        },
+                        "DeadLetterExchangeName": {
+                            "type": "string",
+                            "title": "Dead Letter Exchange Name"
+                        }
+                    },
+                    "title": "Producer"
+                }
+            },
+            "title": "Output Channel"
+        },
+        "Logging": {
+            "type": "object",
+            "properties": {
+                "IncludeScopes": {
+                    "type": "boolean",
+                    "title": "Include Scopes"
+                },
+                "LogLevel": {
+                    "type": "object",
+                    "properties": {
+                        "Default": {
+                            "type": "string",
+                            "enum": [
+                                "None",
+                                "Debug",
+                                "Information",
+                                "Warning",
+                                "Error",
+                                "Critical",
+                                "Trace"
+                            ],
+                            "title": "Default"
+                        }
+                    }
+                }
+            }
+        },
+        "Authentication": {
+            "type": "object",
+            "properties": {
+                "ApiKey": {
+                    "type": "object",
+                    "properties": {
+                        "Enabled": {
+                            "type": "boolean",
+                            "title": "Enabled"
+                        }
+                    }
+                },
+                "IdentityServer": {
+                    "type": "object",
+                    "properties": {
+                        "Enabled": {
+                            "type": "boolean",
+                            "title": "Enabled"
+                        },
+                        "Authority": {
+                            "type": "string",
+                            "title": "Authority Url"
+                        },
+                        "ApiName": {
+                            "type": "string",
+                            "title": "Api Name"
+                        },
+                        "AllowedScopes": {
+                            "type": "array",
+                            "title": "Allowed Scopes",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "SupportedTokens": {
+                            "type": "string",
+                            "enum": [
+                                "None",
+                                "Jwt"
+                            ],
+                            "title": "Supported Tokens"
+                        },
+                        "RequireHttpsMetadata": {
+                            "type": "boolean",
+                            "title": "Require Https Metadata"
+                        },
+                        "LegacyAudienceValidation": {
+                            "type": "boolean",
+                            "title": "Legacy Audience Validation"
+                        }
+                    }
+                }
+            }
+        },
+        "ConfigServer": {
+            "type": "object",
+            "properties": {
+                "Label": {
+                    "type": "string",
+                    "title": "Label"
+                },
+                "Enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "FailFast": {
+                    "type": "boolean",
+                    "title": "Fail Fast"
+                },
+                "Uri": {
+                    "type": "string",
+                    "default": "localhost",
+                    "title": "Uri"
+                }
+            }
+        },
+        "Management": {
+            "type": "object",
+            "properties": {
+                "Endpoints": {
+                    "type": "object",
+                    "properties": {
+                        "Path": {
+                            "type": "string",
+                            "title": "Path"
+                        },
+                        "Enabled": {
+                            "type": "boolean",
+                            "title": "Enabled"
+                        },
+                        "Health": {
+                            "type": "object",
+                            "properties": {
+                                "Enabled": {
+                                    "type": "boolean",
+                                    "title": "Enabled"
+                                },
+                                "Id": {
+                                    "type": "string",
+                                    "title": "Id"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Multitenancy": {
+            "type": "object",
+            "properties": {
+                "Tenants": {
+                    "type": "array",
+                    "title": "Tenants",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Id": {
+                                "type": "string",
+                                "title": "Identity",
+                                "pattern": "^[{(]?[0-9a-fA-F]{8}[-]?([0-9a-fA-F]{4}[-]?){3}[0-9a-fA-F]{12}[)}]?$"
+                            },
+                            "Name": {
+                                "type": "string",
+                                "title": "Name",
+                                "minLength": 3
+                            },
+                            "ApiKeys": {
+                                "type": "array",
+                                "title": "ApiKeys",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "uniqueItems": true,
+                                "minItems": 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
