@@ -21,6 +21,24 @@
                 "description": {
                     "type": "string",
                     "title": "Description"
+                },
+                "contact": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Name"
+                        },
+                        "email": {
+                            "type": "string",
+                            "title": "Email"
+                        },
+                        "url": {
+                            "type": "string",
+                            "title": "Url"
+                        }
+                    },
+                    "title": "Contact"
                 }
             },
             "title": "Api Docs"
