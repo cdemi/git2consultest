@@ -1,0 +1,205 @@
+{
+    "__$id": "ee487c1d-49d6-47d5-af2c-3758b1192b77",
+    "title": "GiG.Currencies.Host",
+    "type": "object",
+    "properties": {
+        "apiDocs": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "routePath": {
+                    "type": "string",
+                    "title": "Identity"
+                },
+                "title": {
+                    "type": "string",
+                    "title": "Title"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Description"
+                }
+            },
+            "title": "Api Docs"
+        },
+        "logging": {
+            "type": "object",
+            "properties": {
+                "includeScopes": {
+                    "type": "boolean",
+                    "title": "Include Scopes"
+                },
+                "logLevel": {
+                    "type": "object",
+                    "properties": {
+                        "default": {
+                            "type": "string",
+                            "enum": [
+                                "None",
+                                "Debug",
+                                "Information",
+                                "Warning",
+                                "Error",
+                                "Critical",
+                                "Trace"
+                            ],
+                            "title": "Default"
+                        }
+                    }
+                }
+            }
+        },
+        "management": {
+            "type": "object",
+            "properties": {
+                "endpoints": {
+                    "type": "object",
+                    "properties": {
+                        "path": {
+                            "type": "string",
+                            "title": "Path"
+                        },
+                        "enabled": {
+                            "type": "boolean",
+                            "title": "Enabled"
+                        },
+                        "health": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "title": "Enabled"
+                                },
+                                "showDetails": {
+                                    "type": "boolean",
+                                    "title": "Show Details"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "title": "Id"
+                                },
+                                "ttl": {
+                                    "type": "integer",
+                                    "title": "TTL",
+                                    "minimum": 0
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "multitenancy": {
+            "type": "object",
+            "properties": {
+                "tenants": {
+                    "type": "array",
+                    "title": "Tenants",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "title": "Identity",
+                                "pattern": "^[{(]?[0-9a-fA-F]{8}[-]?([0-9a-fA-F]{4}[-]?){3}[0-9a-fA-F]{12}[)}]?$"
+                            },
+                            "name": {
+                                "type": "string",
+                                "title": "Name",
+                                "minLength": 3
+                            },
+                            "apiKeys": {
+                                "type": "array",
+                                "title": "ApiKeys",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "uniqueItems": true,
+                                "minItems": 1
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "outputChannel": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "title": "Destination"
+                },
+                "contentType": {
+                    "type": "string",
+                    "enum": [
+                        "application/json",
+                        "text/plain"
+                    ],
+                    "title": "Content Type"
+                },
+                "group": {
+                    "type": "string",
+                    "title": "Group"
+                },
+                "rabbitConfiguration": {
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "type": "string",
+                            "title": "Host"
+                        },
+                        "port": {
+                            "type": "integer",
+                            "title": "Port",
+                            "minimum": 0,
+                            "maximum": 65535
+                        },
+                        "virtualHost": {
+                            "type": "string",
+                            "title": "Virtual Host"
+                        }
+                    },
+                    "title": "Rabbit Configuration"
+                },
+                "producer": {
+                    "type": "object",
+                    "properties": {
+                        "prefix": {
+                            "type": "string",
+                            "title": "Prefix"
+                        },
+                        "autoBindDlq": {
+                            "type": "boolean",
+                            "title": "Auto Bind Dlq"
+                        },
+                        "declareExchange": {
+                            "type": "boolean",
+                            "title": "Declare Exchange"
+                        },
+                        "exchangeType": {
+                            "type": "string",
+                            "title": "ExchangeType"
+                        },
+                        "exchangeDurable": {
+                            "type": "boolean",
+                            "title": "Exchange Durable"
+                        },
+                        "exchangeAutoDelete": {
+                            "type": "boolean",
+                            "title": "Exchange Auto Delete"
+                        },
+                        "deadLetterExchangeName": {
+                            "type": "string",
+                            "title": "Dead Letter Exchange Name"
+                        }
+                    },
+                    "title": "Producer"
+                }
+            },
+            "title": "Output Channel"
+        }
+    }
+}

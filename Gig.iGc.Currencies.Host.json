@@ -1,0 +1,74 @@
+{
+    "apiDocs": {
+        "enabled": true,
+        "routePath": "api-docs",
+        "title": "Currencies Service",
+        "description": "Currencies lookup service.",
+        "contact": {
+            "name": "Richard Vella",
+            "email": "richard.vella@igamingcloud.com",
+            "url": "gaminginnovationgroup.com"
+        }
+    },
+    "logging": {
+        "includeScopes": false,
+        "logLevel": {
+            "default": "Information"
+        }
+    },
+    "management": {
+        "endpoints": {
+            "path": "/management",
+            "enabled": true,
+            "health": {
+                "enabled": true,
+                "showDetails": true,
+                "id": "health",
+                "ttl": 1000
+            },
+            "info": {
+                "enabled": true,
+                "id": "info"
+            }
+        }
+    },
+    "multitenancy": {
+        "tenants": [
+            {
+                "id": "4ead3109-7df4-4bfc-b2b0-90d4c3e51323",
+                "name": "Tenant1",
+                "apiKeys": [
+                    "10fc1cd7-ec0c-4e93-af94-190d6c4ee637",
+                    "1148c713-a1ff-4031-8cc8-5919367f4364",
+                    "14f7e5f3-e129-4913-8a46-680b0ed3af11"
+                ]
+            },
+            {
+                "id": "eb863af4-d046-dd82-1acc-cd7018e61db0",
+                "name": "Tenant2",
+                "apiKeys": [
+                    "ED48958B9319F63B784CDB5EA3135"
+                ]
+            }
+        ]
+    },
+    "outputChannel": {
+        "destination": "igc.currency",
+        "contentType": "application/json",
+        "group": "igc.currency",
+        "rabbitConfiguration": {
+            "host": "13.95.226.121",
+            "port": 5672,
+            "virtualHost": "/"
+        },
+        "producer": {
+            "prefix": "",
+            "autoBindDlq": true,
+            "declareExchange": false,
+            "exchangeType": "direct",
+            "exchangeDurable": true,
+            "exchangeAutoDelete": false,
+            "deadLetterExchangeName": "DLX"
+        }
+    }
+}
