@@ -5,7 +5,7 @@
         "title": "Currencies Service",
         "description": "Currencies lookup service.",
         "contact": {
-            "name": "Jean Farrugia",
+            "name": "Jean Farrugia The First",
             "email": "richard.vella@igamingcloud.com",
             "url": "gaminginnovationgroup.com"
         }
@@ -51,5 +51,24 @@
                 ]
             }
         ]
+    },
+    "outputChannel": {
+        "destination": "igc.currency",
+        "contentType": "application/json",
+        "group": "igc.currency",
+        "rabbitConfiguration": {
+            "host": "13.95.226.121",
+            "port": 5672,
+            "virtualHost": "/"
+        },
+        "producer": {
+            "prefix": "",
+            "autoBindDlq": true,
+            "declareExchange": false,
+            "exchangeType": "direct",
+            "exchangeDurable": true,
+            "exchangeAutoDelete": false,
+            "deadLetterExchangeName": "DLX"
+        }
     }
 }
