@@ -1,7 +1,7 @@
 {
     "apiDocs": {
         "enabled": true,
-        "routePath": "api-docs",
+        "routePath": "api-docs1",
         "title": "Currencies Service",
         "description": "Currencies lookup service.",
         "contact": {
