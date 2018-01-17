@@ -2,10 +2,10 @@
     "apiDocs": {
         "enabled": true,
         "routePath": "api-docs",
-        "title": "Currencies Service1",
+        "title": "Currencies Service",
         "description": "Currencies lookup service.",
         "contact": {
-            "name": "Richard Vella The First",
+            "name": "Richard Vella",
             "email": "richard.vella@igamingcloud.com",
             "url": "gaminginnovationgroup.com"
         }
