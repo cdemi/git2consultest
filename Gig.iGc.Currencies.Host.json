@@ -18,7 +18,7 @@
     },
     "management": {
         "endpoints": {
-            "path": "/management1",
+            "path": "/management",
             "enabled": true,
             "health": {
                 "enabled": true,
