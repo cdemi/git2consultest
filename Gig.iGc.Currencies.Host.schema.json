@@ -106,9 +106,11 @@
                                     "title": "TTL",
                                     "minimum": 0
                                 }
-                            }
+                            },
+                            "title": "Health"
                         }
-                    }
+                    },
+                    "title": "Endpoints"
                 }
             },
             "title": "Management"
@@ -134,7 +136,7 @@
                             },
                             "apiKeys": {
                                 "type": "array",
-                                "title": "ApiKeys",
+                                "title": "API Keys",
                                 "items": {
                                     "type": "string"
                                 },
