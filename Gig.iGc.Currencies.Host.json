@@ -2,7 +2,7 @@
     "apiDocs": {
         "enabled": true,
         "routePath": "api-docs",
-        "title": "Currencies Service4",
+        "title": "Currencies Service5",
         "description": "Currencies lookup service.",
         "contact": {
             "name": "Richard Vella",
